@@ -1,1 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nelly Korda Official Club</title>
 
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+}
+
+header{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+url('f728c6ecb32405e58d74c8060583a139.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:60px;
+color:gold;
+}
+
+.hero p{
+font-size:20px;
+margin-top:15px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 30px;
+margin-top:20px;
+background:gold;
+color:black;
+text-decoration:none;
+font-weight:bold;
+border-radius:10px;
+}
+
+section{
+padding:70px 10%;
+}
+
+.title{
+text-align:center;
+margin-bottom:40px;
+font-size:40px;
+color:gold;
+}
+
+.about{
+background:#1e293b;
+padding:30px;
+border-radius:15px;
+text-align:center;
+}
+
+.form-box{
+background:#1e293b;
+padding:30px;
+border-radius:15px;
+max-width:700px;
+margin:auto;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:15px;
+background:gold;
+color:black;
+font-weight:bold;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.card{
+display:none;
+background:white;
+color:black;
+max-width:500px;
+margin:40px auto;
+padding:25px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 0 20px rgba(0,0,0,.3);
+}
+
+.club-logo{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid gold;
+}
+
+.fan-photo{
+width:160px;
+height:160px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid green;
+margin-top:15px;
+}
+
+.fanid{
+font-size:24px;
+font-weight:bold;
+color:green;
+margin-top:15px;
+}
+
+.status{
+background:green;
+color:white;
+padding:10px;
+margin-top:15px;
+border-radius:8px;
+font-weight:bold;
+}
+
+footer{
+background:black;
+padding:25px;
+text-align:center;
+color:#aaa;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="hero">
+
+<h1>Nelly Korda Official Fan Club</h1>
+
+<p>
+Official Fan Registration & Verification Portal
+</p>
+
+<a href="#register" class="btn">
+Register Now
+</a>
+
+</div>
+
+</header>
+
+<section>
+
+<h2 class="title">About The Fan Club</h2>
+
+<div class="about">
+
+<p>
+Welcome to the Nelly Korda Fan Club.
+
+Fans can register, upload their photo,
+receive a unique Fan ID and become
+part of our growing golf community.
+
+Applications are reviewed manually
+before approval.
+</p>
+
+</div>
+
+</section>
+
+<section id="register">
+
+<h2 class="title">Fan Registration</h2>
+
+<div class="form-box">
+
+<input
+type="text"
+id="name"
+placeholder="Full Name">
+
+<input
+type="email"
+id="email"
+placeholder="Email Address">
+
+<input
+type="tel"
+id="phone"
+placeholder="Phone Number">
+
+<input
+type="text"
+id="country"
+placeholder="Country">
+
+<input
+type="file"
+id="photo"
+accept="image/*">
+
+<button onclick="generateCard()">
+Generate Fan Card
+</button>
+
+</div>
+
+<div class="card" id="fanCard">
+
+<img
+src="f728c6ecb32405e58d74c8060583a139.jpg"
+class="club-logo">
+
+<h2>Nelly Korda Fan Club</h2>
+
+<img
+id="fanImage"
+class="fan-photo">
+
+<h3 id="fanName"></h3>
+
+<p id="fanEmail"></p>
+
+<p id="fanPhone"></p>
+
+<p id="fanCountry"></p>
+
+<div class="fanid" id="fanID"></div>
+
+<div class="status">
+PENDING ADMIN APPROVAL
+</div>
+
+<p style="margin-top:15px;">
+Take a screenshot and send it to the administrator.
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+Nelly Korda Fan Club © 2026
+
+<br><br>
+
+Official Fan Registration & Verification Portal
+
+</footer>
+
+<script>
+
+let memberNumber =
+Math.floor(1000 + Math.random()*9000);
+
+function generateCard(){
+
+let name =
+document.getElementById("name").value;
+
+let email =
+document.getElementById("email").value;
+
+let phone =
+document.getElementById("phone").value;
+
+let country =
+document.getElementById("country").value;
+
+let file =
+document.getElementById("photo").files[0];
+
+if(
+!name ||
+!email ||
+!phone ||
+!country ||
+!file
+){
+alert("Please complete all fields.");
+return;
+}
+
+let year =
+new Date().getFullYear();
+
+let fanID =
+`NKFC-${year}-${memberNumber}`;
+
+document.getElementById("fanName").innerHTML =
+name;
+
+document.getElementById("fanEmail").innerHTML =
+"Email: " + email;
+
+document.getElementById("fanPhone").innerHTML =
+"Phone: " + phone;
+
+document.getElementById("fanCountry").innerHTML =
+"Country: " + country;
+
+document.getElementById("fanID").innerHTML =
+fanID;
+
+const reader =
+new FileReader();
+
+reader.onload = function(e){
+
+document.getElementById("fanImage").src =
+e.target.result;
+
+document.getElementById("fanCard").style.display =
+"block";
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+</script>
+
+</body>
+</html>
